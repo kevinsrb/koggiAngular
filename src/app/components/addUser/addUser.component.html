@@ -1,0 +1,28 @@
+<h3 class="mt-3">Agregar usuario</h3>
+<form [formGroup]="formUser" (ngSubmit)="agregarUser()">
+    <div class="mb-3">
+        <label for="titulo" class="form-label">Nombre</label>
+        <input  formControlName="name" type="text" class="form-control" id="name" autocomplete="off">
+        <span *ngIf="formUser.get('name')?.invalid && formUser.get('name')?.touched" class="text-danger">
+          El  <strong>nombre</strong> es requerido
+        </span>
+    </div>
+    <div class="mb-3">
+        <label for="email" class="form-label">Correo Electronico</label>
+        <input  formControlName="email" type="text" class="form-control" id="email" autocomplete="off">
+        <span *ngIf="formUser.get('email')?.invalid && formUser.get('email')?.touched" class="text-danger">
+            El  <strong>email</strong> es requerido
+        </span>
+    </div>
+    <div class="mb-3">
+        <label for="image" class="form-label">imagen</label>
+        <textarea  formControlName="image" class="form-control" id="image" rows="8" autocomplete="off">
+        </textarea>
+        <span *ngIf="formUser.get('image')?.invalid && formUser.get('image')?.touched" class="text-danger">
+            El  <strong>image</strong> es requerido
+        </span>
+    </div>
+    <button type="submit" [disabled]="formUser.invalid"   class="btn btn-primary float-end">Aceptar </button>
+    <button class="btn btn-secondary" routerLink="/" >Volver </button>
+
+</form>
